@@ -23,6 +23,7 @@ $ yarn init -y
 ```
 $ code .
 ```
+### Instalando bibliotecas e editando configurações
 - Instalar as bibliotecas "react" e "react-dom"
 ```
 $ yarn add react react-dom
