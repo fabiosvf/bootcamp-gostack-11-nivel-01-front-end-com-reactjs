@@ -66,14 +66,65 @@ $ yarn add @babel/cli
 ```
 $ yarn babel src/index.js --out-file public/bundle.js
 ```
+- Instalar a biblioteca 'babel-loader'
+  - Esta biblioteca serve para converter todo o javascript da aplicação para utilizar recursos como importação e exportação de módulos, dentre outras funcionalidades
+```
+$ yarn add babel-loader
+```
+- Instalar a biblioteca "webpack-dev-server" como dependência de desenvolvimento
+  - Esta biblioteca serve para monitorar alterações em nosso código javascript de forma a atualizar automaticamente o resultado em nosso browser. Este recurso é conhecido como "Live Reloading"
+  - Serão necessários a criação de algumas configurações no arquivo "webpack.config.js" para que estes recursos passem a funcionar
+```
+$ yarn add webpack-dev-server -D
+```
+- Criar o arquivo "~/webpack.config.js"
+```
+const path = require("path");
+
+module.exports = {
+  entry: path.resolve(__dirname, "src", "index.js"),
+  output: {
+    path: path.resolve(__dirname, "public"),
+    filename: "bundle.js",
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'public'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+    ],
+  },
+};
+```
+- Exemplo de utilização da biblioteca "webpack-dev-server"
+```
+$ yarn webpack-dev-server --mode development
+```
+
 ---
 
 ## Tecnologias utilizadas
 
 #### Dependências de Projeto
+- [@babel/cli](https://yarnpkg.com/package/@babel/cli)
+- [@babel/core](https://yarnpkg.com/package/@babel/core)
+- [@babel/preset-env](https://yarnpkg.com/package/@babel/preset-env)
+- [@babel/preset-react](https://yarnpkg.com/package/@babel/preset-react)
+- [babel-loader](https://yarnpkg.com/package/babel-loader)
+- [react](https://yarnpkg.com/package/react)
+- [react-dom](https://yarnpkg.com/package/react-dom)
+- [webpack](https://yarnpkg.com/package/webpack)
+- [webpack-cli](https://yarnpkg.com/package/webpack-cli)
 
 #### Dependências de Desenvolvimento
-
+- [webpack-dev-server](https://yarnpkg.com/package/webpack-dev-server)
 ---
 
 ## Como executar
@@ -87,7 +138,7 @@ $ git clone https://github.com/fabiosvf/bootcamp-gostack-11-nivel-01-front-end-c
 ```
 $ yarn
 ```
-- Inicie o serviço
+- Inicie o servidor web
 ```
-$ yarn dev
+$ yarn webpack-dev-server --mode development
 ```
