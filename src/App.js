@@ -2,11 +2,17 @@ import React from "react";
 
 import Header from "./components/Header";
 
+/**
+ * Componente
+ * Propriedade
+ * Estado
+ */
+
 function App() {
   return (
     <>
-      <Header />
-      <Header />
+      <Header title="Homepage" />
+      <Header title="Projects" />
     </>
   );
 }
