@@ -50,13 +50,17 @@ $ yarn add react react-dom
   - Loaders: babel-loader, css-loader, image-loader, file-loader
 ```
 $ yarn add @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli
+$ yarn add @babel/plugin-transform-runtime -D
 ```
 - Criar o arquivo "~/babel.config.js"
   - Acessar o site [Babel](https://babeljs.io/docs/en/configuration) para obter as configurações
+  - @babel/plugin-transform-runtime: Serve para permitir requisições do tipo "async await". Utilizada apenas como dependência de desenvolvimento
 ```
 module.exports = {
   presets: ["@babel/preset-env", "@babel/preset-react"],
+  plugins: ["@babel/plugin-transform-runtime"],
 };
+
 ```
 - Instalar a biblioteca "@babel/cli"
   - Esta biblioteca serve para utilizar o babel como linha de comando para transpilar um javascript moderno em javascript compatível com todos os browsers (navegadores)
@@ -161,6 +165,7 @@ $ yarn add axios
 
 #### Dependências de Desenvolvimento
 - [webpack-dev-server](https://yarnpkg.com/package/webpack-dev-server)
+- [@babel/plugin-transform-runtime](https://yarnpkg.com/package/@babel/plugin-transform-runtime)
 ---
 
 ## Como executar

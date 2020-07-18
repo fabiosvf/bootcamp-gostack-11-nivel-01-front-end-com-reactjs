@@ -26,8 +26,17 @@ function App() {
     });
   }, []); //Com o ultimo parametro [] o useEffect executa a chamada apenas uma vez
 
-  function handleAddProject() {
-    setProjects([...projects, `Novo projeto ${Date.now()}`]);
+  async function handleAddProject() {
+    // setProjects([...projects, `Novo projeto ${Date.now()}`]);
+
+    const response = await api.post("projects", {
+      title: `Novo projeto ${Date.now()}`,
+      owner: "Fabio Ferreira",
+    });
+
+    const project = response.data;
+
+    setProjects([...projects, project]);
   }
 
   return (
