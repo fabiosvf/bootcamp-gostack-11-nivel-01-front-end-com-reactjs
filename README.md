@@ -134,6 +134,11 @@ $ yarn webpack-dev-server --mode development
 ```
 $ yarn dev
 ```
+- Instalar a biblioteca 'axios'
+  - Essa biblioteca é responsável por fazer as chamadas API para conectar o nosso ambiente Front-end com o Back-end
+```
+$ yarn add axios
+```
 
 ---
 
