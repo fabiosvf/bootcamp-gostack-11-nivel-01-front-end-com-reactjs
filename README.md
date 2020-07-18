@@ -146,6 +146,7 @@ $ yarn dev
 - [@babel/preset-react](https://yarnpkg.com/package/@babel/preset-react)
 - [babel-loader](https://yarnpkg.com/package/babel-loader)
 - [css-loader](https://yarnpkg.com/package/css-loader)
+- [file-loader](https://yarnpkg.com/package/file-loader)
 - [react](https://yarnpkg.com/package/react)
 - [react-dom](https://yarnpkg.com/package/react-dom)
 - [style-loader](https://yarnpkg.com/package/style-loader)
