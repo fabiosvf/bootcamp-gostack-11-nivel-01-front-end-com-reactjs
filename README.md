@@ -120,6 +120,20 @@ module.exports = {
 ```
 $ yarn webpack-dev-server --mode development
 ```
+- Criar o parâmetro "script" dentro do arquivo "~/package.json"
+  - Incluir o parâmetro "script" entre os parâmetros "license" e "dependencies"
+```
+...
+  "scripts": {
+    "dev": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
+  },
+...
+```
+- Exemplo de utilização do script para iniciar o servidor web
+```
+$ yarn dev
+```
 
 ---
 
@@ -155,5 +169,5 @@ $ yarn
 ```
 - Inicie o servidor web
 ```
-$ yarn webpack-dev-server --mode development
+$ yarn dev
 ```
