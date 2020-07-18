@@ -67,10 +67,13 @@ $ yarn add @babel/cli
 ```
 $ yarn babel src/index.js --out-file public/bundle.js
 ```
-- Instalar a biblioteca 'babel-loader'
-  - Esta biblioteca serve para converter todo o javascript da aplicação para utilizar recursos como importação e exportação de módulos, dentre outras funcionalidades
+- Instalar as bibliotecas 'babel-loader', 'style-loader', 'css-loader' e 'file-loader'
+  - babel-loader: Serve para converter todo o javascript da aplicação para utilizar recursos como importação e exportação de módulos, dentre outras funcionalidades
+  - css-loader: Serve para ler o arquivo CSS e interpretar as importações que tem dentro do arquivo
+  - style-loader: Serve para injetar dentro do HTML o CSS interpretado
+  - file-loader: Serve para carregar arquivos dentro da aplicação
 ```
-$ yarn add babel-loader
+$ yarn add babel-loader style-loader css-loader file-loader
 ```
 - Instalar a biblioteca "webpack-dev-server" como dependência de desenvolvimento
   - Esta biblioteca serve para monitorar alterações em nosso código javascript de forma a atualizar automaticamente o resultado em nosso browser. Este recurso é conhecido como "Live Reloading"
@@ -89,7 +92,7 @@ module.exports = {
     filename: "bundle.js",
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
+    contentBase: path.resolve(__dirname, "public"),
   },
   module: {
     rules: [
@@ -99,6 +102,15 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+      },
+      {
+        test: /.*\.(gif|png|jpe?g)$/i,
+        use: { loader: "file-loader" },
       },
     ],
   },
@@ -119,8 +131,10 @@ $ yarn webpack-dev-server --mode development
 - [@babel/preset-env](https://yarnpkg.com/package/@babel/preset-env)
 - [@babel/preset-react](https://yarnpkg.com/package/@babel/preset-react)
 - [babel-loader](https://yarnpkg.com/package/babel-loader)
+- [css-loader](https://yarnpkg.com/package/css-loader)
 - [react](https://yarnpkg.com/package/react)
 - [react-dom](https://yarnpkg.com/package/react-dom)
+- [style-loader](https://yarnpkg.com/package/style-loader)
 - [webpack](https://yarnpkg.com/package/webpack)
 - [webpack-cli](https://yarnpkg.com/package/webpack-cli)
 
