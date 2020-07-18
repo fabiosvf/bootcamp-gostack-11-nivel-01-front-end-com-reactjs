@@ -149,6 +149,7 @@ $ yarn add axios
 - [@babel/core](https://yarnpkg.com/package/@babel/core)
 - [@babel/preset-env](https://yarnpkg.com/package/@babel/preset-env)
 - [@babel/preset-react](https://yarnpkg.com/package/@babel/preset-react)
+- [axios](https://yarnpkg.com/package/axios)
 - [babel-loader](https://yarnpkg.com/package/babel-loader)
 - [css-loader](https://yarnpkg.com/package/css-loader)
 - [file-loader](https://yarnpkg.com/package/file-loader)
